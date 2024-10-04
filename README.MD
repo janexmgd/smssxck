@@ -1,3 +1,7 @@
+## ABOUT
+
+smssxc is service for get otp from smshub or smsactivate
+
 ## INSTALLATION
 
 ```
