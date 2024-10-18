@@ -86,8 +86,7 @@ class smssxck {
   async getCode(orderid) {
     try {
       if (!orderid) throw new Error('No orderid');
-
-      this.#url = `${this.#baseUrl}&action=getStatus$id=${orderid}`;
+      this.#url = `${this.#baseUrl}&action=getStatus&id=${orderid}`;
       const { body, statusCode } = await request(this.#url, { method: 'GET' });
       if (statusCode != 200) {
         throw new Error('failed getCode statusCode ' + statusCode);

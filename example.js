@@ -1,7 +1,7 @@
 import smssxck from './index.js';
 (async () => {
   try {
-    const apikey = 'YOUR APIKEY';
+    const apikey = null;
     const smshub = new smssxck(apikey, 'smshub');
     const { ACCESS_BALANCE } = await smshub.getBalance();
     if (ACCESS_BALANCE > 0) {
@@ -9,7 +9,7 @@ import smssxck from './index.js';
       const MAX_WAIT_TIME = 90000;
       const CHECK_INTERVAL = 3000;
       const { ORDER_ID, PHONE_NUMBER } = await smshub.getNumber(
-        '',
+        'asy',
         6,
         'telkomsel',
         maxPrice
@@ -29,9 +29,10 @@ import smssxck from './index.js';
         await new Promise((resolve) => setTimeout(resolve, CHECK_INTERVAL));
         const { CODE } = await smshub.getCode(ORDER_ID);
         if (CODE !== undefined) {
-          console.log(otp);
+          console.log('otp');
 
           console.log(CODE);
+          break;
         }
         totalTimeWaited += CHECK_INTERVAL;
         if (totalTimeWaited >= MAX_WAIT_TIME) {
